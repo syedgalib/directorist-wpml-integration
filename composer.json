@@ -1,0 +1,20 @@
+{
+    "name": "directorist-wpml-integration/directorist-wpml-integration",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Directorist_WPML_Integration\\": "app/"
+        },
+        "files": [ 
+            "helper/const.php", 
+            "helper/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Syed Galib Ahmed",
+            "email": "syedgalibahmed@gmail.com"
+        }
+    ],
+    "require": {}
+}

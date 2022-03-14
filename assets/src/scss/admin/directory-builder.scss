@@ -1,0 +1,27 @@
+@import './admin-main.scss';
+
+// Translation Button
+.directorist_builder__content 
+.directorist_builder__content--right 
+.directorist_builder--tabContent 
+.directorist_table tbody tr td 
+.directorist_listing-actions a.directorist_translation-dropdown-toggle {
+    color: #5A5F7D;
+    display: inline-block;
+    text-decoration: none;
+    margin: 5px;
+    border-radius: 6px !important;
+    background-color: #F4F5F7 !important;
+    padding: 0 15.78px;
+    -webkit-transition: 0.35s;
+    transition: 0.35s;
+    line-height: 2.75;
+}
+
+.directorist_builder__content 
+.directorist_builder__content--right 
+.directorist_builder--tabContent 
+.directorist_table tbody tr td 
+.directorist_listing-actions a.directorist_translation-dropdown-toggle i {
+    margin-right: 0;
+}
