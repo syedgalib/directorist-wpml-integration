@@ -12,6 +12,7 @@ class Filter_Permalinks {
      * @return void
      */
     public function __construct() {
+        add_filter( 'wpml_ls_language_url', [ $this, 'filter_lang_switcher_url_for_generic_pages' ], 20, 2 );
         add_filter( 'wpml_ls_language_url', [ $this, 'filter_lang_switcher_url_for_archive_pages' ], 20, 2 );
         add_filter( 'wpml_ls_language_url', [ $this, 'filter_lang_switcher_url_for_author_profile_page' ], 20, 2 );
         add_filter( 'wpml_ls_language_url', [ $this, 'filter_lang_switcher_url_for_single_taxonomy_page' ], 20, 2 );
@@ -197,6 +198,21 @@ class Filter_Permalinks {
         }
 
         return $link;
+    }
+
+    public function filter_lang_switcher_url_for_generic_pages( $url, $data ) {
+        if ( ! empty( $_REQUEST ) ) {
+            $url = add_query_arg( $_REQUEST, $url );
+        }
+
+        // Pagination
+        $page = $this->get_current_page_number();
+
+        if ( ! empty( $page ) ) {
+            $url = add_query_arg( 'paged', $page , $url );
+        }
+
+        return $url;
     }
 
     /**
@@ -512,5 +528,26 @@ class Filter_Permalinks {
         }
 
         return false;
+    }
+
+    /**
+     * Get current page number
+     * 
+     * @return int | null
+     */
+    public function get_current_page_number() {
+        $paged = null;
+
+        if ( get_query_var( 'paged' ) ) {
+            $paged = get_query_var( 'paged' );
+        } else if ( get_query_var( 'page' ) ) {
+            $paged = get_query_var('page');
+        }
+
+        if ( ! empty( $paged ) && is_numeric( $paged ) ) {
+            $paged = ( int ) $paged;
+        }
+
+        return $paged;
     }
 }

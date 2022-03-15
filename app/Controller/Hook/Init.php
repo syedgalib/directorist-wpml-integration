@@ -27,6 +27,7 @@ class Init {
     private function get_hooks() {
         return [
             Filter_Permalinks::class,
+            Directory_Builder_Actions::class,
         ];
     }
 }

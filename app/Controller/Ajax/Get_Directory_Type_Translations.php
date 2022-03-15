@@ -7,11 +7,21 @@ use Directorist_WPML_Integration\Helper\WPML_Helper;
 
 class Get_Directory_Type_Translations {
 
+    /**
+     * Constructor
+     * 
+     * @return void
+     */
     function __construct() {
         add_action( 'wp_ajax_get_directory_type_translations', [ $this, 'get_directory_type_translations_data' ] );
         add_action( 'wp_ajax_create_directory_type_translation', [ $this, 'create_directory_type_translation' ] );
     }
 
+    /**
+     * Get directory type translations data
+     * 
+     * @return Response
+     */
     public function get_directory_type_translations_data() {
 
         $response = new Response();
@@ -94,16 +104,27 @@ class Get_Directory_Type_Translations {
         wp_send_json( $response->toArray() );
     }
 
+    
+    /**
+     * Get WPML ctive languages
+     * 
+     * @return array
+     */
     public function get_wpml_active_languages() {
         return apply_filters( 'wpml_active_languages', NULL, 'orderby=name&order=asc' );
     }
 
+    /**
+     * Get directory type translations
+     * 
+     * @return array
+     */
     public function get_directory_type_translations() {
-        $taxonomy = ATBDP_DIRECTORY_TYPE;
-        $element_type = 'tax_' . $taxonomy;
+        $taxonomy     = ATBDP_DIRECTORY_TYPE;
+        $element_type = apply_filters( 'wpml_element_type', $taxonomy );
 
         $directory_types = get_terms([
-            'taxonomy' => $taxonomy,
+            'taxonomy'   => $taxonomy,
             'hide_empty' => false,
         ]);
 
@@ -114,8 +135,8 @@ class Get_Directory_Type_Translations {
         $directory_type_translations = [];
 
         foreach( $directory_types as $directory_type ) {
-            $translation_id = apply_filters( 'wpml_element_trid', NULL, $directory_type->term_id, $element_type);
-            $translation = apply_filters( 'wpml_get_element_translations', NULL, $translation_id, $element_type  );
+            $translation_id = apply_filters( 'wpml_element_trid', NULL, $directory_type->term_id, $element_type );
+            $translation    = apply_filters( 'wpml_get_element_translations', NULL, $translation_id, $element_type );
 
             $directory_type_translations[ $directory_type->term_id ] = $translation;
         }
