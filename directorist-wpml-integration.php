@@ -31,5 +31,16 @@ if ( ! function_exists( 'Directorist_WPML_Integration' ) ) {
     }
 }
 
-Directorist_WPML_Integration();
+if ( ! function_exists( 'setup_directorist_wpml_integration' ) ) {
+    function setup_directorist_wpml_integration() {
+
+        if ( version_compare( ATBDP_VERSION, '7.2', '<' ) ) {
+            return;
+        }
+    
+        add_action( 'wpml_loaded', 'Directorist_WPML_Integration' );
+    }
+}
+
+add_action( 'directorist_loaded', 'setup_directorist_wpml_integration' );
 
