@@ -41,11 +41,7 @@ final class Directorist_WPML_Integration {
     private function get_controllers() {
         return [
             Controller\Asset\Init::class,
-            // Controller\Admin\Init::class,
-            // Controller\CPT\Init::class,
-            // Controller\Shortcode\Init::class,
             Controller\Ajax\Init::class,
-            // Controller\Rest_API\Init::class,
             Controller\Hook\Init::class,
         ];
     }
