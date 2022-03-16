@@ -27,7 +27,7 @@ final class Directorist_WPML_Integration {
 	 */
     public static function get_instance() {
         if ( self::$instance === null ) {
-            self::$instance = new self();
+            self::$instance = new Directorist_WPML_Integration();
         }
 
         return self::$instance;
