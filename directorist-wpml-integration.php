@@ -45,37 +45,3 @@ if ( ! function_exists( 'setup_directorist_wpml_integration' ) ) {
 add_action( 'directorist_loaded', 'setup_directorist_wpml_integration' );
 
 
-// add_action( 'init', 'debug' );
-add_action( 'wp_loaded', 'debug' );
-
-function debug() {
-    $listing_id = 257;
-    $directory_type_term = get_the_terms( $listing_id, ATBDP_DIRECTORY_TYPE );
-    $directory_type_term_id = ( ! is_wp_error( $directory_type_term ) && ! empty( $directory_type_term ) ) ? $directory_type_term[0]->term_id : 0;
-
-    // update_post_meta( $listing_id, '_directory_type', 24 );
-
-    $listing_language_info = Directorist_WPML_Integration\Helper\WPML_Helper::get_element_language_info( $listing_id, ATBDP_POST_TYPE );
-
-    // $directory_type_meta = get_post_meta( $listing_id, '_directory_type', true );
-
-    // $directory_types = get_terms([
-    //     'taxonomy'   => ATBDP_DIRECTORY_TYPE,
-    //     'hide_empty' => false,
-    // ]);
-
-
-    $log = [
-        // 'listing_language_info' => $listing_language_info,
-        // 'ATBDP_DIRECTORY_TYPE' => ATBDP_DIRECTORY_TYPE,
-        // 'directory_type_meta'  => $directory_type_meta,
-        // 'directory_type_term'  => $directory_type_term,
-        // 'directory_type_term_id'  => $directory_type_term_id,
-        // 'directory_types'      => $directory_types,
-    ];
-        
-    // var_dump( $log );
-}
-
-
-
