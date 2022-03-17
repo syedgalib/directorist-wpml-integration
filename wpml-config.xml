@@ -174,7 +174,7 @@
         <custom-field action="copy">_featured</custom-field>
         <custom-field action="copy">_listing_status</custom-field>
         <custom-field action="copy">_listing_prv_img</custom-field>
-        <custom-field action="copy">_directory_type</custom-field>
+        <custom-field action="ignore">_directory_type</custom-field>
         <custom-field action="copy">_atbd_listing_pricing</custom-field>
         <custom-field action="copy">_social</custom-field>
         <custom-field action="copy">_map</custom-field>

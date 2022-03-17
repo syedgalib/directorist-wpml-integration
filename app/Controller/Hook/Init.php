@@ -28,6 +28,7 @@ class Init {
         return [
             Filter_Permalinks::class,
             Directory_Builder_Actions::class,
+            Listings_Actions::class,
         ];
     }
 }

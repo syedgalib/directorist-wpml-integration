@@ -125,4 +125,39 @@ class WPML_Helper {
         return $response;
     }
 
+    /**
+     * Get element language info
+     * 
+     * @param int $element_id
+     * @param string $element_type
+     * 
+     * @return object $language_info
+     */
+    public static function get_element_language_info( $element_id, $element_type ) {
+        $get_language_args = [ 
+            'element_id'   => $element_id,
+            'element_type' => $element_type
+        ];
+
+        $language_info = apply_filters( 'wpml_element_language_details', null, $get_language_args );
+    
+        return $language_info;
+    }
+
+    /**
+     * Get element translations
+     * 
+     * @param int $element_id
+     * @param string $element_type
+     * 
+     * @return object $language_info
+     */
+    public static function get_element_translations( $element_id, $element_type ) {
+        $wpml_element_type = apply_filters( 'wpml_element_type', $element_type );
+        $translation_id    = apply_filters( 'wpml_element_trid', NULL, $element_id, $wpml_element_type );
+        $translations      = apply_filters( 'wpml_get_element_translations', NULL, $translation_id, $wpml_element_type );
+
+        return $translations;
+    }
+
 }
