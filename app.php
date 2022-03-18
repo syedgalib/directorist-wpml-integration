@@ -14,6 +14,12 @@ final class Directorist_WPML_Integration {
 	 */
     private function __construct() {
 
+        // Check Compatibility
+        if ( version_compare( ATBDP_VERSION, '7.2', '<' ) ) {
+            add_action( 'admin_notices', [ $this, 'show_incompatibility_notice' ], 1, 1 );
+            return;
+        }
+
         // Register Controllers
         $controllers = $this->get_controllers();
         Helper\Serve::register_services( $controllers );
@@ -38,12 +44,29 @@ final class Directorist_WPML_Integration {
 	 * 
      * @return array $controllers
 	 */
-    private function get_controllers() {
+    protected function get_controllers() {
         return [
             Controller\Asset\Init::class,
             Controller\Ajax\Init::class,
             Controller\Hook\Init::class,
         ];
+    }
+
+    /**
+	 * Show Incompatibility Notice
+	 * 
+     * @return array $controllers
+	 */
+    public function show_incompatibility_notice() {
+        $title   = __( 'Directorist Update is Incomplete', 'directorist-wpml-integration' );
+        $message = __( '<b>Directorist WPML Integration</b> extension requires <b>Directorist 7.2</b> or higher to work', 'directorist-wpml-integration' );
+
+        ?>
+        <div class="notice notice-error">
+            <h3><?php echo $title; ?></h3>
+            <p><?php echo $message; ?></p>
+        </div>
+        <?php
     }
 
     /**

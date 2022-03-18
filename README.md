@@ -1,2 +1,2 @@
 # Directorist WPML Integration
-A WPML integration plugin for Directorist
+A WPML integration extension for Directorist

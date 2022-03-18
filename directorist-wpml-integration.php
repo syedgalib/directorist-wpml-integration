@@ -10,7 +10,7 @@
  * @wordpress-plugin
  * Plugin Name:       Directorist WPML Integration
  * Plugin URI:        https://directorist.com/product/directorist-wpml-integration
- * Description:       A WPML integration plugin for Directorist
+ * Description:       A WPML integration extension for Directorist
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -31,17 +31,6 @@ if ( ! function_exists( 'Directorist_WPML_Integration' ) ) {
     }
 }
 
-if ( ! function_exists( 'setup_directorist_wpml_integration' ) ) {
-    function setup_directorist_wpml_integration() {
-
-        if ( version_compare( ATBDP_VERSION, '7.2', '<' ) ) {
-            return;
-        }
-    
-        add_action( 'wpml_loaded', 'Directorist_WPML_Integration' );
-    }
-}
-
-add_action( 'directorist_loaded', 'setup_directorist_wpml_integration' );
+add_action( 'directorist_loaded', 'Directorist_WPML_Integration' );
 
 
