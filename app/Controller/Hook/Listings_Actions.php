@@ -15,6 +15,7 @@ class Listings_Actions {
      */
     public function __construct() {
         add_filter( 'directorist_show_admin_edit_listing_directory_type_nav', '__return_true', 20, 1 );
+        add_filter( 'directorist_should_update_directory_type', '__return_false', 20, 1 );
         add_action( 'icl_make_duplicate', [ $this, 'update_directory_type_after_listing_duplicate' ], 20, 4 );
         add_action( 'post_updated', [ $this, 'update_directory_type_after_listing_update' ], 20, 1 );
     }
