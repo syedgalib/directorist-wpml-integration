@@ -24,7 +24,7 @@ class Init {
      * 
      * @return array $ajax_controllers
      */
-	private function get_controllers() {
+	protected function get_controllers() {
         return [
             Get_Directory_Type_Translations::class,
         ];

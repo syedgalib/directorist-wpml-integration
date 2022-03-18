@@ -24,7 +24,7 @@ class Init {
      * 
      * @return array $hooks
      */
-    private function get_hooks() {
+    protected function get_hooks() {
         return [
             Filter_Permalinks::class,
             Directory_Builder_Actions::class,
