@@ -55,7 +55,7 @@ final class Directorist_WPML_Integration {
     /**
 	 * Show Incompatibility Notice
 	 * 
-     * @return array $controllers
+     * @return void
 	 */
     public function show_incompatibility_notice() {
         $title   = __( 'Directorist Update is Incomplete', 'directorist-wpml-integration' );
