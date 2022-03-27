@@ -148,24 +148,24 @@
     </admin-texts>
 
     <custom-fields>
-        <custom-field action="copy">_tagline</custom-field>
-        <custom-field action="copy">_price</custom-field>
+        <custom-field action="translate">_tagline</custom-field>
+        <custom-field action="translate">_price</custom-field>
         <custom-field action="copy">_price_range</custom-field>
         <custom-field action="copy">_atbdp_post_views_count</custom-field>
-        <custom-field action="copy">_excerpt</custom-field>
+        <custom-field action="translate">_excerpt</custom-field>
         <custom-field action="copy">_tax_input[at_biz_dir-location][]</custom-field>
         <custom-field action="copy">_tax_input[at_biz_dir-tags][]</custom-field>
         <custom-field action="copy">_admin_category_select[]</custom-field>
         <custom-field action="copy">_hide_contact_info</custom-field>
-        <custom-field action="copy">_address</custom-field>
+        <custom-field action="translate">_address</custom-field>
         <custom-field action="copy">_manual_lat</custom-field>
         <custom-field action="copy">_manual_lng</custom-field>
         <custom-field action="copy">_hide_map</custom-field>
-        <custom-field action="copy">_zip</custom-field>
-        <custom-field action="copy">_phone</custom-field>
-        <custom-field action="copy">_phone2</custom-field>
-        <custom-field action="copy">_fax</custom-field>
-        <custom-field action="copy">_email</custom-field>
+        <custom-field action="translate">_zip</custom-field>
+        <custom-field action="translate">_phone</custom-field>
+        <custom-field action="translate">_phone2</custom-field>
+        <custom-field action="translate">_fax</custom-field>
+        <custom-field action="translate">_email</custom-field>
         <custom-field action="copy">_website</custom-field>
         <custom-field action="copy">_videourl</custom-field>
         <custom-field action="copy">_fm_plans</custom-field>
