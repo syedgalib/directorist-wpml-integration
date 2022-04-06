@@ -8,7 +8,7 @@
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:       Directorist WPML Integration
+ * Plugin Name:       Directorist - WPML Integration
  * Plugin URI:        https://directorist.com/product/directorist-wpml-integration
  * Description:       A WPML integration extension for Directorist
  * Version:           1.0.0
