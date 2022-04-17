@@ -61,14 +61,14 @@ msgstr ""
 msgid "Access denied."
 msgstr ""
 
-#: ../app.php:62
+#: ../app.php:65
 msgid "Directorist Update is Incomplete"
 msgstr ""
 
-#: ../app.php:63
+#: ../app.php:66
 msgid "<b>Directorist WPML Integration</b> extension requires <b>Directorist 7.2</b> or higher to work"
 msgstr ""
 
-#: ../app.php:80, ../app.php:90
+#: ../app.php:91, ../app.php:100
 msgid "Cheatin&#8217; huh?"
 msgstr ""

@@ -55,9 +55,10 @@ const tasks = {
         if ( ! data.wpml_active_languages ) {
             return;
         }
-        
-        const currentLanguage = data.wpml_current_language;
-        const activeLanguages = data.wpml_active_languages;
+
+        const self              = this;
+        const currentLanguage   = data.wpml_current_language;
+        const activeLanguages   = data.wpml_active_languages;
         const term_translations = data.translations;
 
         const actions = document.querySelectorAll( '.directorist_listing-actions' );
@@ -85,7 +86,7 @@ const tasks = {
                 const iconName            = hasTranslation ? 'fas fa-edit' : 'fas fa-plus';
                 const flag                = translation.country_flag_url;
                 const translationTermID   = hasTranslation ? term_translations[ termID ][ translation_key ].term_id : 0;
-                const link                = hasTranslation ? data.translation_edit_link_template.replace( '__ID__', translationTermID ) : '#';
+                const link                = hasTranslation ?  self.parseTranslationEditLinkTemplate( data.translation_edit_link_template, translationTermID, translation_key ) : '#';
                 const linkClass           = hasTranslation ? '' : ' directorist-link-has-action directorist-wpml-add-translation';
         
                 return `<li class="directorist-list-item" data-language-code="${translation_key}">
@@ -119,6 +120,13 @@ const tasks = {
         
             item.prepend( translation_button_wrap );
         });
+    },
+
+    // parseTranslationEditLinkTemplate
+    parseTranslationEditLinkTemplate: function( template, translationID, languageKey ) {
+        return template
+            .replace( '__ID__', translationID )
+            .replace( '__LANGUAGE__', languageKey );
     },
 
     // attachAddTranslationActionHandler

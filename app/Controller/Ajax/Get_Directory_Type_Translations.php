@@ -35,7 +35,7 @@ class Get_Directory_Type_Translations {
             'wpml_current_language'          => apply_filters( 'wpml_current_language', NULL ),
             'wpml_active_languages'          => $this->get_wpml_active_languages(),
             'translations'                   => $this->get_directory_type_translations(),
-            'translation_edit_link_template' => admin_url( 'edit.php?post_type=at_biz_dir&page=atbdp-directory-types&listing_type_id=__ID__&action=edit' ),
+            'translation_edit_link_template' => admin_url( 'edit.php?post_type=at_biz_dir&page=atbdp-directory-types&listing_type_id=__ID__&action=edit&lang=__LANGUAGE__' ),
         ];
 
         $response->success = true;

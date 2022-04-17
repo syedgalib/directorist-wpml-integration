@@ -170,6 +170,7 @@ var tasks = {
       return;
     }
 
+    var self = this;
     var currentLanguage = data.wpml_current_language;
     var activeLanguages = data.wpml_active_languages;
     var term_translations = data.translations;
@@ -195,7 +196,7 @@ var tasks = {
         var iconName = hasTranslation ? 'fas fa-edit' : 'fas fa-plus';
         var flag = translation.country_flag_url;
         var translationTermID = hasTranslation ? term_translations[termID][translation_key].term_id : 0;
-        var link = hasTranslation ? data.translation_edit_link_template.replace('__ID__', translationTermID) : '#';
+        var link = hasTranslation ? self.parseTranslationEditLinkTemplate(data.translation_edit_link_template, translationTermID, translation_key) : '#';
         var linkClass = hasTranslation ? '' : ' directorist-link-has-action directorist-wpml-add-translation';
         return "<li class=\"directorist-list-item\" data-language-code=\"".concat(translation_key, "\">\n                    <span class=\"directorist-list-item-label\">\n                        <span class=\"directorist-list-item-icon\">\n                            <img src=\"").concat(flag, "\" />\n                        </span>\n        \n                        ").concat(label, "\n                    </span>\n        \n                    <div class=\"directorist-list-item-actions\">\n                        <a href=\"").concat(link, "\" class=\"directorist-list-item-action-link directorist-text-right--important").concat(linkClass, "\">\n                            <i class=\"").concat(iconName, "\"></i>\n                        </a>\n                    </div>\n                </li>");
       }).filter(function (item) {
@@ -205,6 +206,10 @@ var tasks = {
       translation_button_wrap.innerHTML = translation_button;
       item.prepend(translation_button_wrap);
     });
+  },
+  // parseTranslationEditLinkTemplate
+  parseTranslationEditLinkTemplate: function parseTranslationEditLinkTemplate(template, translationID, languageKey) {
+    return template.replace('__ID__', translationID).replace('__LANGUAGE__', languageKey);
   },
   // attachAddTranslationActionHandler
   attachAddTranslationActionHandler: function attachAddTranslationActionHandler() {
