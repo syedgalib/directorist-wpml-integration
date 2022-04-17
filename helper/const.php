@@ -16,6 +16,10 @@ if ( ! defined( 'DIRECTORIST_WPML_INTEGRATION_BASE' ) ) {
     define( 'DIRECTORIST_WPML_INTEGRATION_BASE', dirname( dirname( __FILE__ ) ) . '/' );
 }
 
+if ( ! defined( 'DIRECTORIST_WPML_INTEGRATION_LANGUAGE_DIR' ) ) {
+    define( 'DIRECTORIST_WPML_INTEGRATION_LANGUAGE_DIR', DIRECTORIST_WPML_INTEGRATION_BASE . 'languages' );
+}
+
 if ( ! defined( 'DIRECTORIST_WPML_INTEGRATION_POST_TYPE' ) ) {
     define( 'DIRECTORIST_WPML_INTEGRATION_POST_TYPE', 'directorist-wpml-integration' );
 }

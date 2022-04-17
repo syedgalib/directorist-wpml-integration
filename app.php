@@ -20,6 +20,9 @@ final class Directorist_WPML_Integration {
             return;
         }
 
+        // Load Textdomain
+        add_action('plugins_loaded', [ $this, 'load_textdomain' ] );
+
         // Register Controllers
         $controllers = $this->get_controllers();
         Helper\Serve::register_services( $controllers );
@@ -68,6 +71,15 @@ final class Directorist_WPML_Integration {
             <p><?php echo $message; ?></p>
         </div>
         <?php
+    }
+
+    /**
+     * Load Text Domain
+     * 
+     * @return void
+     */
+    public function load_textdomain() {
+        load_plugin_textdomain( 'directorist-wpml-integration', false, DIRECTORIST_WPML_INTEGRATION_LANGUAGE_DIR );
     }
 
     /**
