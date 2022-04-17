@@ -83,22 +83,20 @@ final class Directorist_WPML_Integration {
     }
 
     /**
-	 * __clone
+	 * Cloning instances of the class is forbidden.
 	 * 
      * @return void
 	 */
     public function __clone() {
-		// Cloning instances of the class is forbidden.
 		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'directorist-wpml-integration'), '1.0' );
 	}
 
     /**
-	 * __wakeup
+	 * Unserializing instances of the class is forbidden.
 	 * 
      * @return void
 	 */
 	public function __wakeup() {
-		// Unserializing instances of the class is forbidden.
 		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'directorist-wpml-integration'), '1.0' );
 	}
 
