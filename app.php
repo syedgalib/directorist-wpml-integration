@@ -15,7 +15,7 @@ final class Directorist_WPML_Integration {
     private function __construct() {
 
         // Check Compatibility
-        if ( version_compare( ATBDP_VERSION, '7.2', '<' ) ) {
+        if ( version_compare( ATBDP_VERSION, '7.2.2', '<' ) ) {
             add_action( 'admin_notices', [ $this, 'show_incompatibility_notice' ], 1, 1 );
             return;
         }
