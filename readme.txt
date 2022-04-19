@@ -1,5 +1,5 @@
 === Directorist - WPML Integration ===
-Contributors:      wpwax
+Contributors:      wpwax, rafiq91
 Tags:              directory, directorist, directorist wpml, wpml
 Requires at least: 5.7
 Tested up to:      5.9
