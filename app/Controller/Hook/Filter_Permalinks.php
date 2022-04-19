@@ -284,17 +284,17 @@ class Filter_Permalinks {
         }
 
         // Author ID
-        $author_id = ( isset( $_REQUEST['author_id'] ) ) ? $_REQUEST['author_id'] : get_query_var( 'author_id' );
+        $author_id = ( isset( $_REQUEST['author_id'] ) ) ? sanitize_text_field( $_REQUEST['author_id'] ) : get_query_var( 'author_id' );
 
         if ( ! empty( $author_id ) ) {
             $url = add_query_arg( 'author_id', $author_id , $url );
         }
 
         // Directory Type
-        $directory_type = ( isset( $_REQUEST['directory_type'] ) ) ? $_REQUEST['directory_type'] : get_query_var( 'directory_type' );
+        $directory_type = ( isset( $_REQUEST['directory_type'] ) ) ? sanitize_text_field( $_REQUEST['directory_type'] ) : get_query_var( 'directory_type' );
         
         if ( empty( $directory_type ) ) {
-            $directory_type = ( isset( $_REQUEST['directory-type'] ) ) ? $_REQUEST['directory-type'] : get_query_var( 'directory-type' );
+            $directory_type = ( isset( $_REQUEST['directory-type'] ) ) ? sanitize_text_field( $_REQUEST['directory-type'] ) : get_query_var( 'directory-type' );
         }
 
         if ( ! empty( $directory_type ) ) {
@@ -420,7 +420,7 @@ class Filter_Permalinks {
         }
 
         if ( isset( $_REQUEST['directory_type'] ) ) {
-            $directory_type = $_REQUEST['directory_type'];
+            $directory_type = sanitize_text_field( $_REQUEST['directory_type'] );
             $url = add_query_arg( [ 'directory_type' => $directory_type ], $url );  
         }
         

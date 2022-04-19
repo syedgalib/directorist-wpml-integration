@@ -9,7 +9,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Directorist - WPML Integration
- * Plugin URI:        https://directorist.com/product/directorist-wpml-integration
+ * Plugin URI:        https://github.com/sovware/directorist-wpml-integration
  * Description:       A WPML integration extension for Directorist
  * Version:           1.0.0
  * Requires at least: 5.2
@@ -19,7 +19,6 @@
  * Text Domain:       directorist-wpml-integration
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Update URI:        https://github.com/sovware/directorist-wpml-integration
  */
 
 require dirname( __FILE__ ) . '/vendor/autoload.php';

@@ -57,8 +57,8 @@ class Get_Directory_Type_Translations {
             wp_send_json( $response->toArray() );
         }
 
-        $directory_type_id          = ( isset( $_REQUEST['directory_type_id'] ) ) ? $_REQUEST['directory_type_id'] : 0;
-        $taranslation_language_code = ( isset( $_REQUEST['taranslation_language_code'] ) ) ? $_REQUEST['taranslation_language_code'] : '';
+        $directory_type_id          = ( isset( $_REQUEST['directory_type_id'] ) ) ? sanitize_text_field( $_REQUEST['directory_type_id'] ) : 0;
+        $taranslation_language_code = ( isset( $_REQUEST['taranslation_language_code'] ) ) ? sanitize_text_field( $_REQUEST['taranslation_language_code'] ) : '';
 
         if ( empty( $directory_type_id ) ) {
             $response->message = 'Directory type ID is required';

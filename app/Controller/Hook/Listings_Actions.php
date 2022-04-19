@@ -67,7 +67,7 @@ class Listings_Actions {
             return;
         }
 
-        $directory_type_id = ( isset( $_REQUEST['directory_type'] ) ) ? $_REQUEST['directory_type'] : 0;
+        $directory_type_id = ( isset( $_REQUEST['directory_type'] ) ) ? sanitize_text_field( $_REQUEST['directory_type'] ) : 0;
 
         $log[ 'post_id' ] = $post_id;
         $log[ 'directory_type_id_{_REQUEST}' ] = $directory_type_id;
