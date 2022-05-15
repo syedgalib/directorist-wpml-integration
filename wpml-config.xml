@@ -157,7 +157,7 @@
         <custom-field action="copy">_tax_input[at_biz_dir-tags][]</custom-field>
         <custom-field action="copy">_admin_category_select[]</custom-field>
         <custom-field action="copy">_hide_contact_info</custom-field>
-        <custom-field action="translate">_address</custom-field>
+        <custom-field action="copy">_address</custom-field>
         <custom-field action="copy">_manual_lat</custom-field>
         <custom-field action="copy">_manual_lng</custom-field>
         <custom-field action="copy">_hide_map</custom-field>
@@ -165,7 +165,7 @@
         <custom-field action="translate">_phone</custom-field>
         <custom-field action="translate">_phone2</custom-field>
         <custom-field action="translate">_fax</custom-field>
-        <custom-field action="translate">_email</custom-field>
+        <custom-field action="copy">_email</custom-field>
         <custom-field action="copy">_website</custom-field>
         <custom-field action="copy">_videourl</custom-field>
         <custom-field action="copy">_fm_plans</custom-field>

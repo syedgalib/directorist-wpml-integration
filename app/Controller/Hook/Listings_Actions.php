@@ -18,6 +18,28 @@ class Listings_Actions {
         add_filter( 'directorist_should_update_directory_type', '__return_false', 20, 1 );
         add_action( 'icl_make_duplicate', [ $this, 'update_directory_type_after_listing_duplicate' ], 20, 4 );
         add_action( 'post_updated', [ $this, 'update_directory_type_after_listing_update' ], 20, 1 );
+        add_filter( 'wpml_pro_translation_completed', [ $this, 'update_directory_type_after_listing_translation' ], 20, 3 );
+    }
+
+    /**
+     * Update Directory Type After Listing Translation
+     * 
+     * @param int $new_post_id
+     * 
+     * @return int New post ID
+     */
+    public function update_directory_type_after_listing_translation( $new_post_id = 0 ) {
+
+        if ( ATBDP_POST_TYPE !== get_post_type( $new_post_id ) ) {
+            return $new_post_id;
+        }
+
+        $directory_type    = get_the_terms( $new_post_id, ATBDP_DIRECTORY_TYPE );
+        $directory_type_id = ( ! empty( $directory_type ) && is_array( $directory_type ) ) ? $directory_type[0]->term_id : 0;
+
+        update_post_meta( $new_post_id, '_directory_type', $directory_type_id );
+
+        return $new_post_id;
     }
 
     /**
