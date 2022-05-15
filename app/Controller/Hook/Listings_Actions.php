@@ -28,16 +28,23 @@ class Listings_Actions {
      * 
      * @return int New post ID
      */
-    public function update_directory_type_after_listing_translation( $new_post_id = 0 ) {
+    public function update_directory_type_after_listing_translation( $new_post_id = 0, $fields = [], $job = null ) {
 
         if ( ATBDP_POST_TYPE !== get_post_type( $new_post_id ) ) {
             return $new_post_id;
         }
+        
+        $current_lang = apply_filters( 'wpml_current_language', null );
+        $to_lang = ( ! empty( $job ) ) ? $job->language_code : $current_lang;
+
+        do_action( 'wpml_switch_language', $to_lang );
 
         $directory_type    = get_the_terms( $new_post_id, ATBDP_DIRECTORY_TYPE );
         $directory_type_id = ( ! empty( $directory_type ) && is_array( $directory_type ) ) ? $directory_type[0]->term_id : 0;
 
         update_post_meta( $new_post_id, '_directory_type', $directory_type_id );
+
+        do_action( 'wpml_switch_language', $current_lang );
 
         return $new_post_id;
     }
