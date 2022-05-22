@@ -116,7 +116,7 @@ class Filter_Permalinks {
      * 
      * @return string
      */
-    public function filter_single_category_page_url( $link, $term, $page_id, $directory_type ) {
+    public function filter_single_category_page_url( $link, $page_id, $term, $directory_type ) {
 
         return $this->filter_single_taxonomy_page_url([
             'link'           => $link,
