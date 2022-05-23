@@ -15,7 +15,61 @@ class Directory_Builder_Actions {
      */
     public function __construct() {
         add_action( 'directorist_before_set_default_directory_type', [ $this, 'before_update_default_directory_type' ], 20, 1 );
-        add_action( 'directorist_after_set_default_directory_type', [ $this, 'after_set_default_directory_type' ], 20, 1 );
+        add_action( 'directorist_after_set_default_directory_type', [ $this, 'after_update_default_directory_type' ], 20, 1 );
+        
+        add_action( 'directorist_before_update_directory_type', [ $this, 'before_update_directory_type' ], 20, 1 );
+        add_action( 'directorist_after_update_directory_type', [ $this, 'after_update_directory_type' ], 20, 1 );
+    }
+
+    /**
+     * Before update directory type
+     * 
+     * @param int $directory_type_id
+     * @return void
+     */
+    public function before_update_directory_type( $directory_type_id = 0 ) {
+
+        $current_language = apply_filters( 'wpml_current_language', NULL );
+
+        set_transient( 'directorist_wpml_integration:current_language', $current_language );
+
+        $element_type = ATBDP_DIRECTORY_TYPE;
+        $wpml_element_type = apply_filters( 'wpml_element_type', $element_type );
+             
+        // get the language info of the original post
+        $get_language_args = [ 
+            'element_id'   => $directory_type_id,
+            'element_type' => $wpml_element_type
+        ];
+    
+        $original_post_language_info = apply_filters( 'wpml_element_language_details', null, $get_language_args );
+
+        if ( empty( $original_post_language_info ) ) {
+            return;
+        }
+
+        do_action( 'wpml_switch_language', $original_post_language_info->language_code );
+
+    }
+
+    /**
+     * After update directory type
+     * 
+     * @param int $directory_type_id
+     * @return void
+     */
+    public function after_update_directory_type( $directory_type_id = 0 ) {
+
+        $previous_language = get_transient( 'directorist_wpml_integration:current_language' );
+        
+        if ( empty( $previous_language ) ) {
+            return;
+        }
+
+        do_action( 'wpml_switch_language', $previous_language );
+
+        delete_transient( 'directorist_wpml_integration:current_language' );
+
     }
 
     /**
