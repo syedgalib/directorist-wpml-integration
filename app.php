@@ -6,7 +6,7 @@ use Directorist_WPML_Integration\Helper;
 final class Directorist_WPML_Integration {
 
     private static $instance;
-    public $min_directorist_version_requirment = '7.2.1';
+    public $min_directorist_version_requirment = '7.2.2';
 
     /**
 	 * Constuctor
