@@ -14,17 +14,17 @@ class Directory_Builder_Actions {
      * @return void
      */
     public function __construct() {
-        add_action( 'directorist_before_set_default_directory_type', [ $this, 'before_set_default_directory_type' ], 20, 1 );
+        add_action( 'directorist_before_set_default_directory_type', [ $this, 'before_update_default_directory_type' ], 20, 1 );
         add_action( 'directorist_after_set_default_directory_type', [ $this, 'after_set_default_directory_type' ], 20, 1 );
     }
 
     /**
-     * Before set default directory type
+     * Before update default directory type
      * 
      * @param int $directory_type_id
      * @return void
      */
-    public function before_set_default_directory_type( $directory_type_id = 0 ) {
+    public function before_update_default_directory_type( $directory_type_id = 0 ) {
 
         $current_language = apply_filters( 'wpml_current_language', NULL );
 
@@ -41,7 +41,7 @@ class Directory_Builder_Actions {
      * 
      * @return void
      */
-    public function after_set_default_directory_type( $directory_type_id = 0 ) {
+    public function after_update_default_directory_type( $directory_type_id = 0 ) {
 
         $current_language  = apply_filters( 'wpml_current_language', NULL );
         $previous_language = get_transient( 'directorist_wpml_integration:current_language' );
