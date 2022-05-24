@@ -6,7 +6,6 @@ use Directorist_WPML_Integration\Helper;
 final class Directorist_WPML_Integration {
 
     private static $instance;
-    public $min_directorist_version_requirment = '7.2.2';
 
     /**
 	 * Constuctor
@@ -16,7 +15,7 @@ final class Directorist_WPML_Integration {
     private function __construct() {
 
         // Check Compatibility
-        if ( version_compare( ATBDP_VERSION, $this->min_directorist_version_requirment, '<' ) ) {
+        if ( version_compare( ATBDP_VERSION, DIRECTORIST_WPML_INTEGRATION_MIN_DIRECTORIST_VERSION_REQUIRMENT, '<' ) ) {
             add_action( 'admin_notices', [ $this, 'show_incompatibility_notice' ], 1, 1 );
             return;
         }
@@ -64,8 +63,7 @@ final class Directorist_WPML_Integration {
 	 */
     public function show_incompatibility_notice() {
         $title       = __( 'Directorist Update is Incomplete', 'directorist-wpml-integration' );
-        $min_version = $this->min_directorist_version_requirment;
-        $message     = __( '<b>Directorist WPML Integration</b> extension requires <b>Directorist '. $min_version .'</b> or higher to work', 'directorist-wpml-integration' );
+        $message     = __( '<b>Directorist WPML Integration</b> extension requires <b>Directorist '. DIRECTORIST_WPML_INTEGRATION_MIN_DIRECTORIST_VERSION_REQUIRMENT .'</b> or higher to work', 'directorist-wpml-integration' );
 
         ?>
         <div class="notice notice-error">
