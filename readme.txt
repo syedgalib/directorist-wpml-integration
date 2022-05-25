@@ -30,7 +30,7 @@ The following plugins must be installed in order to translate.
 
 1. WPML Multilingual CMS - (Paid)
 2. Directorist – WordPress Business Directory Plugin with Classified Ads Listings (Free)
-3. Directorist-WPML Integration plugin (Free)
+3. Directorist - WPML Integration plugin (Free)
 
 == Recommended (Not Required): ==
 
