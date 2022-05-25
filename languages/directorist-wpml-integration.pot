@@ -61,10 +61,26 @@ msgstr ""
 msgid "Access denied."
 msgstr ""
 
-#: ../app.php:66
+#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:64
+msgid "Directory type ID is required"
+msgstr ""
+
+#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:69
+msgid "Taranslation language code is required"
+msgstr ""
+
+#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:77
+msgid "The term ID is not valid"
+msgstr ""
+
+#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:98
+msgid "The translation has been created successfully"
+msgstr ""
+
+#: ../app.php:65
 msgid "Directorist Update is Incomplete"
 msgstr ""
 
-#: ../app.php:93, ../app.php:102
+#: ../app.php:91, ../app.php:100
 msgid "Cheatin&#8217; huh?"
 msgstr ""
