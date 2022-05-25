@@ -61,12 +61,12 @@ class Get_Directory_Type_Translations {
         $taranslation_language_code = ( isset( $_REQUEST['taranslation_language_code'] ) ) ? sanitize_text_field( $_REQUEST['taranslation_language_code'] ) : '';
 
         if ( empty( $directory_type_id ) ) {
-            $response->message = 'Directory type ID is required';
+            $response->message = __( 'Directory type ID is required', 'directorist-wpml-integration' );
             wp_send_json( $response->toArray() );
         }
 
         if ( empty( $taranslation_language_code ) ) {
-            $response->message = 'Taranslation language code is required';
+            $response->message = __( 'Taranslation language code is required', 'directorist-wpml-integration' );
             wp_send_json( $response->toArray() );
         }
 
@@ -74,7 +74,7 @@ class Get_Directory_Type_Translations {
         $term = get_term_by( 'id', $directory_type_id, $taxonomy );
 
         if ( is_wp_error( $term ) ) {
-            $response->message = 'The term ID is not valid';
+            $response->message = __( 'The term ID is not valid', 'directorist-wpml-integration' );
             wp_send_json( $response->toArray() );
         }
 
@@ -95,7 +95,7 @@ class Get_Directory_Type_Translations {
         }
 
         $response->success = true;
-        $response->message = 'The translation has been created successfully';
+        $response->message = __( 'The translation has been created successfully', 'directorist-wpml-integration' );
         $response->data = [
             'translation_term_id' => $translation_term_id,
             'edit_link' => admin_url( 'edit.php?post_type=at_biz_dir&page=atbdp-directory-types&listing_type_id=' . $translation_term_id . '&action=edit' ),
