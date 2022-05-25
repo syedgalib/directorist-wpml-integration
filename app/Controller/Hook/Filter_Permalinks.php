@@ -17,9 +17,9 @@ class Filter_Permalinks {
         add_filter( 'wpml_ls_language_url', [ $this, 'filter_lang_switcher_url_for_author_profile_page' ], 20, 2 );
         add_filter( 'wpml_ls_language_url', [ $this, 'filter_lang_switcher_url_for_single_taxonomy_page' ], 20, 2 );
         
-        add_filter( 'atbdp_checkout_page_url', [ $this, 'filter_checkout_page_url' ], 20, 2 );
-        add_filter( 'atbdp_payment_receipt_page_url', [ $this, 'filter_payment_receipt_page_url' ], 20, 2 );
-        add_filter( 'atbdp_edit_listing_page_url', [ $this, 'filter_edit_listing_page_url' ], 20, 2 );
+        add_filter( 'atbdp_checkout_page_url', [ $this, 'filter_checkout_page_url' ], 20, 3 );
+        add_filter( 'atbdp_payment_receipt_page_url', [ $this, 'filter_payment_receipt_page_url' ], 20, 3 );
+        add_filter( 'atbdp_edit_listing_page_url', [ $this, 'filter_edit_listing_page_url' ], 20, 3 );
         add_filter( 'atbdp_author_profile_page_url', [ $this, 'filter_author_profile_page_url' ], 20, 4 );
         
         add_filter( 'atbdp_single_category', [ $this, 'filter_single_category_page_url' ], 20, 4 );
@@ -33,9 +33,14 @@ class Filter_Permalinks {
     /**
      * Filter directorist pagination URL
      * 
-     * @return string
+     * @param string $navigation
+     * @param string $links
+     * @param object $query_results
+     * @param int $paged
+     * 
+     * @return string Navigation
      */
-    public function filter_directorist_pagination_url( $navigation, $links, $query_results, $paged ) {
+    public function filter_directorist_pagination_url( $navigation = '', $links = '', $query_results = null, $paged = 0 ) {
         $paged = 1;
         $largeNumber = 999999999;
 
@@ -61,9 +66,13 @@ class Filter_Permalinks {
     /**
      * Filter directorist directory type nav URL
      * 
-     * @return string
+     * @param string $url
+     * @param string $type
+     * @param string $base_url
+     * 
+     * @return string URL
      */
-    public function filter_directorist_directory_type_nav_url( $url, $type, $base_url ) {
+    public function filter_directorist_directory_type_nav_url( $url = '', $type = '', $base_url = '' ) {
         
         if ( ! empty( $base_url ) ) {
             $base_url = remove_query_arg( [ 'page', 'paged', 'directory_type', 'directory-type' ] );
@@ -79,9 +88,14 @@ class Filter_Permalinks {
     /**
      * Filter author profile page URL
      * 
-     * @return string
+     * @param string $url
+     * @param int $page_id
+     * @param int $author_id
+     * @param string $directory_type
+     * 
+     * @return string $url
      */
-    public function filter_author_profile_page_url( $url, $page_id, $author_id, $directory_type ) {
+    public function filter_author_profile_page_url( $url = '', $page_id = 0, $author_id = 0, $directory_type = '' ) {
 
         if ( ! $page_id ) {
             return $url;
@@ -114,9 +128,14 @@ class Filter_Permalinks {
     /**
      * Filter single category page URL
      * 
-     * @return string
+     * @param string $link
+     * @param int $page_id
+     * @param object $term
+     * @param string $directory_type
+     * 
+     * @return string URL
      */
-    public function filter_single_category_page_url( $link, $page_id, $term, $directory_type ) {
+    public function filter_single_category_page_url( $link = '', $page_id = 0, $term = null, $directory_type = '' ) {
 
         return $this->filter_single_taxonomy_page_url([
             'link'           => $link,
@@ -131,9 +150,14 @@ class Filter_Permalinks {
     /**
      * Filter single location page URL
      * 
-     * @return string
+     * @param string $link
+     * @param int $page_id
+     * @param object $term
+     * @param string $directory_type
+     * 
+     * @return string URL
      */
-    public function filter_single_location_page_url( $link, $page_id, $term, $directory_type ) {
+    public function filter_single_location_page_url( $link = '', $page_id = 0, $term = null, $directory_type = '' ) {
 
         return $this->filter_single_taxonomy_page_url([
             'link'           => $link,
@@ -148,9 +172,14 @@ class Filter_Permalinks {
     /**
      * Filter single tag page URL
      * 
-     * @return string
+     * @param string $link
+     * @param int $page_id
+     * @param object $term
+     * @param string $directory_type
+     * 
+     * @return string URL
      */
-    public function filter_single_tag_page_url( $link, $page_id, $term, $directory_type ) {
+    public function filter_single_tag_page_url( $link = '', $page_id = 0, $term = null, $directory_type = '' ) {
 
         return $this->filter_single_taxonomy_page_url([
             'link'           => $link,
@@ -165,7 +194,8 @@ class Filter_Permalinks {
     /**
      * Filter single taxonomy page URL
      * 
-     * @return string
+     * @param array $args
+     * @return string Link
      */
     public function filter_single_taxonomy_page_url( $args = [] ) {
 
@@ -200,7 +230,15 @@ class Filter_Permalinks {
         return $link;
     }
 
-    public function filter_lang_switcher_url_for_generic_pages( $url, $data ) {
+    /**
+     * Filter Lang Switcher Url For Generic Pages
+     * 
+     * @param string $url
+     * @param array $data
+     * 
+     * @return string URL
+     */
+    public function filter_lang_switcher_url_for_generic_pages( $url = '', $data = [] ) {
         if ( ! empty( $_REQUEST ) ) {
             $url = add_query_arg( $_REQUEST, $url );
         }
@@ -218,9 +256,12 @@ class Filter_Permalinks {
     /**
      * Filter language switcher URL for archive page
      * 
-     * @return string
+     * @param string $url
+     * @param array $data
+     * 
+     * @return string URL
      */
-    public function filter_lang_switcher_url_for_archive_pages( $url, $data ) {
+    public function filter_lang_switcher_url_for_archive_pages( $url = '', $data = [] ) {
 
         $page_ids = [
             'all_listings'  => get_directorist_option('all_listing_page'),
@@ -267,9 +308,12 @@ class Filter_Permalinks {
     /**
      * Filter language switcher URL for author profile page
      * 
-     * @return string
+     * @param string $url
+     * @param array $data
+     * 
+     * @return string URL
      */
-    public function filter_lang_switcher_url_for_author_profile_page( $url, $data ) {
+    public function filter_lang_switcher_url_for_author_profile_page( $url = '', $data = [] ) {
 
         $page_id = get_directorist_option('author_profile_page');
 
@@ -314,9 +358,12 @@ class Filter_Permalinks {
     /**
      * Filter language switcher URL for single taxonomy page
      * 
-     * @return string
+     * @param string $url
+     * @param array $data
+     * 
+     * @return string URL
      */
-    public function filter_lang_switcher_url_for_single_taxonomy_page( $url, $data ) {
+    public function filter_lang_switcher_url_for_single_taxonomy_page( $url = '', $data = [] ) {
 
         $taxonomy_data = $this->get_current_page_taxonomy_data();
 
@@ -332,7 +379,7 @@ class Filter_Permalinks {
     /**
      * Get current page taxonomy data
      * 
-     * @return mixed null | $taxonomy_data
+     * @return mixed|null | $taxonomy_data
      */
     public function get_current_page_taxonomy_data() {
         $terms_pages = [ 
@@ -445,9 +492,12 @@ class Filter_Permalinks {
      * Filter Checkout Page URL
      * 
      * @param string $url = ''
+     * @param string $page_id = 0
      * @param string $listing_id = 0
+     * 
+     * @return string $url
      */
-    public function filter_checkout_page_url( $url = '',  $listing_id = 0 ) {
+    public function filter_checkout_page_url( $url = '', $page_id = 0, $listing_id = 0 ) {
         $pattern = '/(\/submit\/\d+)\/?/';
 
         if ( preg_match( $pattern, $url ) ) {
@@ -462,9 +512,12 @@ class Filter_Permalinks {
      * Filter Payment Receipt Page URL
      * 
      * @param string $url = ''
+     * @param string $page_id = 0
      * @param string $order_id = 0
+     * 
+     * @return string $url
      */
-    public function filter_payment_receipt_page_url( $url = '',  $order_id = 0 ) {
+    public function filter_payment_receipt_page_url( $url = '', $page_id = 0, $order_id = 0 ) {
         $pattern = '/(\/order\/\d+)\/?/';
 
         if ( preg_match( $pattern, $url ) ) {
@@ -479,9 +532,12 @@ class Filter_Permalinks {
      * Filter Edit Listing Page URL
      * 
      * @param string $url = ''
+     * @param string $page_id = 0
      * @param string $listing_id = 0
+     * 
+     * @return string $url
      */
-    public function filter_edit_listing_page_url( $url = '',  $listing_id = 0 ) {
+    public function filter_edit_listing_page_url( $url = '', $page_id = 0, $listing_id = 0 ) {
         $pattern = '/(\/edit\/\d+)\/?/';
 
         if ( preg_match( $pattern, $url ) ) {
@@ -507,6 +563,9 @@ class Filter_Permalinks {
 
     /**
      * Checks if the given page ID matches with current page ID
+     * 
+     * @param int $page_id
+     * @param string $element_type
      * 
      * @return bool
      */
