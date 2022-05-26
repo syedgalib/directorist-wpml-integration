@@ -29,31 +29,31 @@ msgstr ""
 msgid "Element type is required"
 msgstr ""
 
-#: ../app/Helper/WPML_Helper.php:57
-msgid "Original post ID is not valid"
+#: ../app/Helper/WPML_Helper.php:54, ../app/Controller/Ajax/Get_Directory_Type_Translations.php:83
+msgid "There is no language is assingned to this directory"
 msgstr ""
 
-#: ../app/Helper/WPML_Helper.php:72
+#: ../app/Helper/WPML_Helper.php:67
 msgid "The translation has been set successfully."
 msgstr ""
 
-#: ../app/Helper/WPML_Helper.php:89
+#: ../app/Helper/WPML_Helper.php:130
 msgid "The term ID is required."
 msgstr ""
 
-#: ../app/Helper/WPML_Helper.php:94
+#: ../app/Helper/WPML_Helper.php:135
 msgid "The taxonomy is required."
 msgstr ""
 
-#: ../app/Helper/WPML_Helper.php:101
+#: ../app/Helper/WPML_Helper.php:142
 msgid "The term ID or taxonomy is not valid."
 msgstr ""
 
-#: ../app/Helper/WPML_Helper.php:108
+#: ../app/Helper/WPML_Helper.php:149
 msgid "Couldn't duplicate the term, please try again."
 msgstr ""
 
-#: ../app/Helper/WPML_Helper.php:123
+#: ../app/Helper/WPML_Helper.php:164
 msgid "The term has been duplicated successfully"
 msgstr ""
 
@@ -69,11 +69,11 @@ msgstr ""
 msgid "Taranslation language code is required"
 msgstr ""
 
-#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:77
+#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:91
 msgid "The term ID is not valid"
 msgstr ""
 
-#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:98
+#: ../app/Controller/Ajax/Get_Directory_Type_Translations.php:112
 msgid "The translation has been created successfully"
 msgstr ""
 
