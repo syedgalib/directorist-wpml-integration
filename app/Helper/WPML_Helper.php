@@ -43,36 +43,77 @@ class WPML_Helper {
             return $response;
         }
 
-        $wpml_element_type = apply_filters( 'wpml_element_type', $element_type );
-             
-        // get the language info of the original post
-        $get_language_args = [ 
-            'element_id'   => $original_post_id,
-            'element_type' => $element_type
-        ];
-    
-        $original_post_language_info = apply_filters( 'wpml_element_language_details', null, $get_language_args );
+        $original_post_language_info = self::get_language_info( $original_post_id, $element_type );
         
         if ( empty( $original_post_language_info ) ) {
-            $response->message = __( 'Original post ID is not valid', 'directorist-wpml-integration' );
+            self::assign_language( $original_post_id, $element_type );
+            $original_post_language_info = self::get_language_info( $original_post_id, $element_type );
+        }
+
+        if ( empty( $original_post_language_info ) ) {
+            $response->message = __( 'There is no language is assingned to this directory', 'directorist-wpml-integration' );
             return $response;
         }
 
-        $set_language_args = [
-            'element_id'           => $translation_post_id,
-            'element_type'         => $wpml_element_type,
-            'trid'                 => $original_post_language_info->trid,
-            'language_code'        => $language_code,
-            'source_language_code' => $original_post_language_info->language_code
-        ];
-    
-        do_action( 'wpml_set_element_language_details', $set_language_args );
+        self::assign_language( 
+            $translation_post_id, 
+            $element_type,
+            $language_code,
+            $original_post_language_info->trid,
+            $original_post_language_info->language_code
+        );
 
         $response->success = true;
         $response->message = __( 'The translation has been set successfully.', 'directorist-wpml-integration' );
 
         return $response;
     }
+
+    /**
+     * Assign Language
+     * 
+     * @param int $post_id
+     * @param string $element_type
+     * @param string $language
+     * @param int $trid
+     * @param string $source_language_code
+     * 
+     * @return void 
+     */
+    public static function assign_language( $post_id = 0,  $element_type = '', $language_code = '', $trid = false, $source_language_code = null ) {
+        $default_language  = apply_filters( 'wpml_default_language', null );
+        $language_code          = ( ! empty( $language_code ) ) ? $language_code : $default_language;
+        $wpml_element_type = apply_filters( 'wpml_element_type', $element_type );
+
+        $set_language_args = [
+            'element_id'           => $post_id,
+            'element_type'         => $wpml_element_type,
+            'trid'                 => $trid,
+            'language_code'        => $language_code,
+            'source_language_code' => $source_language_code
+        ];
+
+        do_action( 'wpml_set_element_language_details', $set_language_args );
+    }
+
+    /**
+     * Get Language Info
+     * 
+     * @param string $post_id
+     * @param string $element_type
+     * 
+     * @return stdClass|false Language Info
+     */
+    public static function get_language_info( $post_id = 0, $element_type = 'post' ) {
+        $get_language_args = [ 
+            'element_id'   => $post_id,
+            'element_type' => $element_type
+        ];
+    
+        return apply_filters( 'wpml_element_language_details', null, $get_language_args );
+    }
+
+
 
     /**
      * Duplicats a term from given term ID

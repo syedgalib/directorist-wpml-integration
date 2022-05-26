@@ -71,6 +71,20 @@ class Get_Directory_Type_Translations {
         }
 
         $taxonomy = ATBDP_DIRECTORY_TYPE;
+
+        $directory_type_language_info = WPML_Helper::get_language_info( $directory_type_id, $taxonomy );
+        
+        if ( empty( $directory_type_language_info ) ) {
+            WPML_Helper::assign_language( $directory_type_id, $taxonomy );
+            $directory_type_language_info = WPML_Helper::get_language_info( $directory_type_id, $taxonomy );
+        }
+
+        if ( empty( $directory_type_language_info ) ) {
+            $response->message = __( 'There is no language is assingned to this directory', 'directorist-wpml-integration' );
+            wp_send_json( $response->toArray() );
+        }
+
+        
         $term = get_term_by( 'id', $directory_type_id, $taxonomy );
 
         if ( is_wp_error( $term ) ) {
