@@ -46,6 +46,7 @@ const prodConfig = {
               { source: './vendor', destination: './__build/directorist-wpml-integration/directorist-wpml-integration/vendor' },
               { source: './view', destination: './__build/directorist-wpml-integration/directorist-wpml-integration/view' },
               { source: './*.php', destination: './__build/directorist-wpml-integration/directorist-wpml-integration' },
+              { source: './*.xml', destination: './__build/directorist-wpml-integration/directorist-wpml-integration' },
             ],
           },
           {
