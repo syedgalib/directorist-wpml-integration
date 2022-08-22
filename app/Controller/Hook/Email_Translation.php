@@ -37,11 +37,6 @@ class Email_Translation {
         $language_info = apply_filters( 'wpml_element_language_details', null, $get_language_args );
         $language      = apply_filters( 'wpml_current_language', null );
 
-        file_put_contents( dirname( __FILE__ ) . '/log.json', json_encode([
-            '$language_info'    => $language_info,
-            '$current_language' => $language,
-        ]));
-
         set_transient( 'directorist_wpml_integration_before_change_current_language', $language );
 
         if ( ! empty( $language_info ) ) {
