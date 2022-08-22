@@ -10,23 +10,31 @@ class Email_Translation {
      * @return void
      */
     public function __construct() {
-        add_action( 'directorist_before_send_email', [ $this, 'before_send_email' ], 20, 2 );
+        add_action( 'directorist_before_send_email', [ $this, 'before_send_email' ], 20, 1 );
         add_action( 'directorist_after_send_email', [ $this, 'after_send_email' ], 20, 1 );
     }
 
     /**
      * Before Send Email
      * 
-     * @param int $object_id
+     * @param array $args
      * @return void
      */
-    public function before_send_email( $object_id = 0, $send_to = '' ) {
+    public function before_send_email( $args = [] ) {
 
-        if ( 'admin' === $send_to ) {
+        if ( empty( $args['recipient_type'] ) ) {
             return;
         }
 
-        $element_id   = $object_id;
+        if ( 'admin' === $args['recipient_type'] ) {
+            return;
+        }
+
+        if ( empty( $args['listing_id'] ) ) {
+            return;
+        }
+
+        $element_id   = $args['listing_id'];
         $element_type = ATBDP_POST_TYPE;
 
         $get_language_args = [ 
