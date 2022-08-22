@@ -26,7 +26,7 @@ class Email_Translation {
             return;
         }
 
-        if ( 'admin' === $args['recipient_type'] ) {
+        if ( 'user' !== $args['recipient_type'] ) {
             return;
         }
 
