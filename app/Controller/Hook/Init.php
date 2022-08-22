@@ -29,6 +29,7 @@ class Init {
             Filter_Permalinks::class,
             Directory_Builder_Actions::class,
             Listings_Actions::class,
+            Email_Translation::class,
         ];
     }
 }
