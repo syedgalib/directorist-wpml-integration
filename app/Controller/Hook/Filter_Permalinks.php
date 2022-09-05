@@ -52,8 +52,8 @@ class Filter_Permalinks {
             'format'    => '?paged=%#%',
             'current'   => max(1, $paged),
             'total'     => $total,
-            'prev_text' => apply_filters('directorist_pagination_prev_text', '<span class="fa fa-chevron-left"></span>'),
-            'next_text' => apply_filters('directorist_pagination_next_text', '<span class="fa fa-chevron-right atbdp_right_nav"></span>'),
+            'prev_text' => apply_filters('directorist_pagination_prev_text', directorist_icon( 'fas fa-chevron-left', false ) ),
+            'next_text' => apply_filters('directorist_pagination_next_text', directorist_icon( 'fas fa-chevron-right', false, 'atbdp_right_nav' ) ),
         ));
 
         if ( $links ) {
