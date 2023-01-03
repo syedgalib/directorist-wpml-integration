@@ -37,7 +37,6 @@ class Filter_Permalinks {
      * Filter the translation page
      * 
      * @param int Current page id
-     * 
      * @return int Translation Page ID
      */
 
@@ -45,11 +44,9 @@ class Filter_Permalinks {
 		
 		$current_lang = apply_filters( 'wpml_current_language', NULL );
 		$page_translations = WPML_Helper::get_element_translations( $id, 'page' );
-
-		if( array_key_exists( $current_lang, $page_translations ) ) {
+		if( isset( $page_translations[$current_lang] ) ) {
 			return $page_translations[$current_lang]->element_id;
 		}
-		
 		return $id;
 	}
 
