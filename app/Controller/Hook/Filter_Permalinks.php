@@ -1,6 +1,7 @@
 <?php
 
 namespace Directorist_WPML_Integration\Controller\Hook;
+use Directorist_WPML_Integration\Helper\WPML_Helper;
 
 class Filter_Permalinks {
 
@@ -28,7 +29,29 @@ class Filter_Permalinks {
         
         add_filter( 'directorist_pagination', [ $this, 'filter_directorist_pagination_url' ], 20, 4 );
         add_filter( 'directorist_get_directory_type_nav_url', [ $this, 'filter_directorist_directory_type_nav_url' ], 20, 4 );
+        add_filter( 'directorist_page_id', [ $this, 'page_id' ] );
+
     }
+
+    /**
+     * Filter the translation page
+     * 
+     * @param int Current page id
+     * 
+     * @return int Translation Page ID
+     */
+
+     public function page_id( $id ) {
+		
+		$current_lang = apply_filters( 'wpml_current_language', NULL );
+		$page_translations = WPML_Helper::get_element_translations( $id, 'page' );
+
+		if( array_key_exists( $current_lang, $page_translations ) ) {
+			return $page_translations[$current_lang]->element_id;
+		}
+		
+		return $id;
+	}
 
     /**
      * Filter directorist pagination URL
