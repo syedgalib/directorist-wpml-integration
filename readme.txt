@@ -1,10 +1,10 @@
 === Directorist - WPML Integration ===
-Contributors:      wpwax, rafiq91
+Contributors:      wpwax
 Tags:              directory, directorist, directorist wpml, wpml
 Requires at least: 5.7
-Tested up to:      5.9
-Requires PHP:      7.0
-Stable tag:        0.1.0
+Tested up to:      6.0
+Requires PHP:      7.2
+Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,8 +58,3 @@ If you want to contribute to the project, you’re most welcome to make it happe
 2. Activate the plugin through the 'Plugins' screen in WordPress if installed manually or through the WordPress plugins screen.
 3. Use the `Add New` button in the Block Editor toolbar when needed.
 
-== Changelog ==
-
-= 0.1.0 - April 19, 2022 =
-
-* Release

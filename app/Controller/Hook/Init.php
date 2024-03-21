@@ -26,9 +26,11 @@ class Init {
      */
     protected function get_hooks() {
         return [
+            REST_API::class,
             Filter_Permalinks::class,
             Directory_Builder_Actions::class,
             Listings_Actions::class,
+            Email_Translation::class,
         ];
     }
 }

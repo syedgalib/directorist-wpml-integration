@@ -27,6 +27,22 @@ class ComposerStaticInit98ae8520e386a00622a1c03d5878aca0
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Directorist_WPML_Integration\\Controller\\Ajax\\Get_Directory_Type_Translations' => __DIR__ . '/../..' . '/app/Controller/Ajax/Get_Directory_Type_Translations.php',
+        'Directorist_WPML_Integration\\Controller\\Ajax\\Init' => __DIR__ . '/../..' . '/app/Controller/Ajax/Init.php',
+        'Directorist_WPML_Integration\\Controller\\Asset\\AdminAsset' => __DIR__ . '/../..' . '/app/Controller/Asset/AdminAsset.php',
+        'Directorist_WPML_Integration\\Controller\\Asset\\AssetEnqueuer' => __DIR__ . '/../..' . '/app/Controller/Asset/AssetEnqueuer.php',
+        'Directorist_WPML_Integration\\Controller\\Asset\\Init' => __DIR__ . '/../..' . '/app/Controller/Asset/Init.php',
+        'Directorist_WPML_Integration\\Controller\\Asset\\PublicAsset' => __DIR__ . '/../..' . '/app/Controller/Asset/PublicAsset.php',
+        'Directorist_WPML_Integration\\Controller\\Hook\\Directory_Builder_Actions' => __DIR__ . '/../..' . '/app/Controller/Hook/Directory_Builder_Actions.php',
+        'Directorist_WPML_Integration\\Controller\\Hook\\Filter_Permalinks' => __DIR__ . '/../..' . '/app/Controller/Hook/Filter_Permalinks.php',
+        'Directorist_WPML_Integration\\Controller\\Hook\\Init' => __DIR__ . '/../..' . '/app/Controller/Hook/Init.php',
+        'Directorist_WPML_Integration\\Controller\\Hook\\Listings_Actions' => __DIR__ . '/../..' . '/app/Controller/Hook/Listings_Actions.php',
+        'Directorist_WPML_Integration\\Controller\\Setup\\Init' => __DIR__ . '/../..' . '/app/Controller/Setup/Init.php',
+        'Directorist_WPML_Integration\\Controller\\Setup\\Update_Options' => __DIR__ . '/../..' . '/app/Controller/Setup/Update_Options.php',
+        'Directorist_WPML_Integration\\Helper\\Response' => __DIR__ . '/../..' . '/app/Helper/Response.php',
+        'Directorist_WPML_Integration\\Helper\\Serve' => __DIR__ . '/../..' . '/app/Helper/Serve.php',
+        'Directorist_WPML_Integration\\Helper\\WPML_Helper' => __DIR__ . '/../..' . '/app/Helper/WPML_Helper.php',
+        'Directorist_WPML_Integration\\Utility\\Enqueuer' => __DIR__ . '/../..' . '/app/Utility/Enqueuer.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

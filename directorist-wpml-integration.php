@@ -8,11 +8,11 @@
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:       Directorist - WPML Integration
+ * Plugin Name:       Directorist WPML Integration
  * Plugin URI:        https://github.com/sovware/directorist-wpml-integration
- * Description:       A WPML integration extension for Directorist
- * Version:           0.1.2
- * Requires at least: 5.2
+ * Description:       WPML integration plugin for Directorist.
+ * Version:           1.0.0
+ * Requires at least: 5.7
  * Requires PHP:      7.2
  * Author:            wpWax
  * Author URI:        https://directorist.com/about-us
@@ -31,5 +31,3 @@ if ( ! function_exists( 'Directorist_WPML_Integration' ) ) {
 }
 
 add_action( 'directorist_loaded', 'Directorist_WPML_Integration' );
-
-
