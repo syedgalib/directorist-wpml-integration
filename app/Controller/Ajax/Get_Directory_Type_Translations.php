@@ -84,7 +84,6 @@ class Get_Directory_Type_Translations {
             wp_send_json( $response->toArray() );
         }
 
-        
         $term = get_term_by( 'id', $directory_type_id, $taxonomy );
 
         if ( is_wp_error( $term ) ) {

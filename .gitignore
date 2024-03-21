@@ -3,4 +3,5 @@ __*/
 .DS_Store
 /.vscode
 /.idea
+/.yarn
 *.map

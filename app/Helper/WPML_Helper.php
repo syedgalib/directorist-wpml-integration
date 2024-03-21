@@ -138,7 +138,7 @@ class WPML_Helper {
 
         $original_term = get_term_by( 'id', $term_id, $taxonomy );
 
-        if ( is_wp_error( $original_term ) ) {
+        if ( ! $original_term ) {
             $response->message = __( 'The term ID or taxonomy is not valid.', 'directorist-wpml-integration' );
             return $response;
         }
