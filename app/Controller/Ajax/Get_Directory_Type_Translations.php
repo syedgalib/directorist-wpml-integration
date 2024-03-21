@@ -86,7 +86,7 @@ class Get_Directory_Type_Translations {
 
         $term = get_term_by( 'id', $directory_type_id, $taxonomy );
 
-        if ( is_wp_error( $term ) ) {
+        if ( ! $term ) {
             $response->message = __( 'The term ID is not valid', 'directorist-wpml-integration' );
             wp_send_json( $response->toArray() );
         }
