@@ -17,7 +17,7 @@
  * Requires PHP:      7.2
  * Author:            wpWax
  * Author URI:        https://directorist.com/about-us
- * Text Domain:       directorist-wpml-integration
+ * Text Domain:       w
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */

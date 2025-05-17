@@ -26,7 +26,7 @@ module.exports = ( grunt ) => {
 		addtextdomain: {
 			options: {
 				updateDomains: true,
-				textdomain: '<%= grunt.config.get("screen.begin.options.data.textDomain") %>'
+				textdomain: 'directorist-wpml-integration'
 			},
 			target: {
 				files: {
@@ -39,7 +39,7 @@ module.exports = ( grunt ) => {
 			standard: {
 				options: {
 					text_domain:
-						'<%= grunt.config.get("screen.begin.options.data.textDomain") %>', //Specify allowed domain(s)
+						'directorist-wpml-integration', //Specify allowed domain(s)
 					// correct_domain: true, // don't use it, it has bugs
 					keywords: [
 						//List keyword specifications
@@ -80,7 +80,7 @@ module.exports = ( grunt ) => {
 				options: {
 					data: {
 						version: '1.0.0',
-						textDomain: '<%= grunt.config.get("screen.begin.options.data.textDomain") %>',
+						textDomain: 'directorist-wpml-integration',
 					},
 				},
 				template: `
@@ -91,7 +91,7 @@ module.exports = ( grunt ) => {
 			},
 			textdomainchecking: {
 				template:
-					`Checking textdomain [<%= grunt.config.get("screen.begin.options.data.textDomain") %>]`
+					`Checking textdomain [directorist-wpml-integration]`
 						.cyan,
 			},
 			finish: {

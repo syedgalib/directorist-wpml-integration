@@ -24,22 +24,22 @@ class WPML_Helper {
 
         // Validation
         if ( empty( $original_post_id ) ) {
-            $response->message = __( 'Original post ID is required', 'dev-tools' );
+            $response->message = __( 'Original post ID is required', 'directorist-wpml-integration' );
             return $response;
         }
 
         if ( empty( $translation_post_id ) ) {
-            $response->message = __( 'Translation post ID is required', 'dev-tools' );
+            $response->message = __( 'Translation post ID is required', 'directorist-wpml-integration' );
             return $response;
         }
 
         if ( empty( $language_code ) ) {
-            $response->message = __( 'Language code is required', 'dev-tools' );
+            $response->message = __( 'Language code is required', 'directorist-wpml-integration' );
             return $response;
         }
 
         if ( empty( $element_type ) ) {
-            $response->message = __( 'Element type is required', 'dev-tools' );
+            $response->message = __( 'Element type is required', 'directorist-wpml-integration' );
             return $response;
         }
 
@@ -51,7 +51,7 @@ class WPML_Helper {
         }
 
         if ( empty( $original_post_language_info ) ) {
-            $response->message = __( 'There is no language is assingned to this directory', 'dev-tools' );
+            $response->message = __( 'There is no language is assingned to this directory', 'directorist-wpml-integration' );
             return $response;
         }
 
@@ -64,7 +64,7 @@ class WPML_Helper {
         );
 
         $response->success = true;
-        $response->message = __( 'The translation has been set successfully.', 'dev-tools' );
+        $response->message = __( 'The translation has been set successfully.', 'directorist-wpml-integration' );
 
         return $response;
     }
@@ -127,26 +127,26 @@ class WPML_Helper {
         $response = new Response();
 
         if ( empty( $term_id ) ) {
-            $response->message = __( 'The term ID is required.', 'dev-tools' );
+            $response->message = __( 'The term ID is required.', 'directorist-wpml-integration' );
             return $response;
         }
 
         if ( empty( $taxonomy ) ) {
-            $response->message = __( 'The taxonomy is required.', 'dev-tools' );
+            $response->message = __( 'The taxonomy is required.', 'directorist-wpml-integration' );
             return $response;
         }
 
         $original_term = get_term_by( 'id', $term_id, $taxonomy );
 
         if ( is_wp_error( $original_term ) ) {
-            $response->message = __( 'The term ID or taxonomy is not valid.', 'dev-tools' );
+            $response->message = __( 'The term ID or taxonomy is not valid.', 'directorist-wpml-integration' );
             return $response;
         }
 
 	    $new_term = wp_insert_term( $new_term_name, $original_term->taxonomy );
 
         if ( is_wp_error( $new_term ) ) {
-            $response->message = __( 'Couldn\'t duplicate the term, please try again.', 'dev-tools' );
+            $response->message = __( 'Couldn\'t duplicate the term, please try again.', 'directorist-wpml-integration' );
             return $response;
         }
 
@@ -161,7 +161,7 @@ class WPML_Helper {
 
         $response->success = true;
         $response->data    = [ 'new_term_id' => $new_term['term_id'] ];
-        $response->message = __( 'The term has been duplicated successfully', 'dev-tools' );
+        $response->message = __( 'The term has been duplicated successfully', 'directorist-wpml-integration' );
         
         return $response;
     }
