@@ -27,7 +27,7 @@ class Get_Directory_Type_Translations {
         $response = new Response();
 
         if ( ! directorist_verify_nonce() ) {
-            $response->message = __( 'Access denied.', 'directorist-wpml-integration' );
+            $response->message = __( 'Access denied.', 'dev-tools' );
             wp_send_json( $response->toArray() );
         }
 
@@ -53,7 +53,7 @@ class Get_Directory_Type_Translations {
         $response = new Response();
 
         if ( ! directorist_verify_nonce() ) {
-            $response->message = __( 'Access denied.', 'directorist-wpml-integration' );
+            $response->message = __( 'Access denied.', 'dev-tools' );
             wp_send_json( $response->toArray() );
         }
 
@@ -61,12 +61,12 @@ class Get_Directory_Type_Translations {
         $taranslation_language_code = ( isset( $_REQUEST['taranslation_language_code'] ) ) ? sanitize_text_field( $_REQUEST['taranslation_language_code'] ) : '';
 
         if ( empty( $directory_type_id ) ) {
-            $response->message = __( 'Directory type ID is required', 'directorist-wpml-integration' );
+            $response->message = __( 'Directory type ID is required', 'dev-tools' );
             wp_send_json( $response->toArray() );
         }
 
         if ( empty( $taranslation_language_code ) ) {
-            $response->message = __( 'Taranslation language code is required', 'directorist-wpml-integration' );
+            $response->message = __( 'Taranslation language code is required', 'dev-tools' );
             wp_send_json( $response->toArray() );
         }
 
@@ -80,7 +80,7 @@ class Get_Directory_Type_Translations {
         }
 
         if ( empty( $directory_type_language_info ) ) {
-            $response->message = __( 'There is no language is assingned to this directory', 'directorist-wpml-integration' );
+            $response->message = __( 'There is no language is assingned to this directory', 'dev-tools' );
             wp_send_json( $response->toArray() );
         }
 
@@ -88,7 +88,7 @@ class Get_Directory_Type_Translations {
         $term = get_term_by( 'id', $directory_type_id, $taxonomy );
 
         if ( is_wp_error( $term ) ) {
-            $response->message = __( 'The term ID is not valid', 'directorist-wpml-integration' );
+            $response->message = __( 'The term ID is not valid', 'dev-tools' );
             wp_send_json( $response->toArray() );
         }
 
@@ -109,7 +109,7 @@ class Get_Directory_Type_Translations {
         }
 
         $response->success = true;
-        $response->message = __( 'The translation has been created successfully', 'directorist-wpml-integration' );
+        $response->message = __( 'The translation has been created successfully', 'dev-tools' );
         $response->data = [
             'translation_term_id' => $translation_term_id,
             'edit_link' => admin_url( 'edit.php?post_type=at_biz_dir&page=atbdp-directory-types&listing_type_id=' . $translation_term_id . '&action=edit' ),

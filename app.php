@@ -64,8 +64,8 @@ final class Directorist_WPML_Integration {
     public function show_incompatibility_notice() {
         ?>
         <div class="notice notice-error">
-            <h3><?php esc_html_e( 'Directorist Update is Incomplete', 'directorist-wpml-integration' ); ?></h3>
-            <p><?php echo wp_kses( __( '<b>Directorist WPML Integration</b> extension requires <b>Directorist '. DIRECTORIST_WPML_INTEGRATION_MIN_DIRECTORIST_VERSION_REQUIRMENT .'</b> or higher to work', 'directorist-wpml-integration' ), array( 'b' ) ); ?></p>
+            <h3><?php esc_html_e( 'Directorist Update is Incomplete', 'dev-tools' ); ?></h3>
+            <p><?php echo wp_kses( __( '<b>Directorist WPML Integration</b> extension requires <b>Directorist '. DIRECTORIST_WPML_INTEGRATION_MIN_DIRECTORIST_VERSION_REQUIRMENT .'</b> or higher to work', 'dev-tools' ), array( 'b' ) ); ?></p>
         </div>
         <?php
     }
@@ -85,7 +85,7 @@ final class Directorist_WPML_Integration {
      * @return void
 	 */
     public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'directorist-wpml-integration'), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'dev-tools'), '1.0' );
 	}
 
     /**
@@ -94,7 +94,7 @@ final class Directorist_WPML_Integration {
      * @return void
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'directorist-wpml-integration'), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __('Cheatin&#8217; huh?', 'dev-tools'), '1.0' );
 	}
 
 }
