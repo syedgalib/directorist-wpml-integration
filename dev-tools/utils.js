@@ -47,6 +47,7 @@ const buildFiles = [
 	'helper',
 	'languages',
 	'vendor',
+	'app.php',
 	'readme.txt',
 	'wpml-config.xml',
 	`${ pluginRootFile }.php`,
