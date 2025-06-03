@@ -4,7 +4,7 @@ Tags:              directory, directorist, directorist wpml, wpml
 Requires at least: 5.7
 Tested up to:      6.8
 Requires PHP:      7.4
-Stable tag:        2.1
+Stable tag:        2.1.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,7 +60,7 @@ If you want to contribute to the project, you’re most welcome to make it happe
 
 == Changelogs == 
 
-2.1 - May 17, 2025
+2.1.1 - Jun, 2025
 
 * Added:  Directorist as a required dependency
 * Added: Translation support for Claim Listing Settings
