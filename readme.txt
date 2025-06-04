@@ -4,8 +4,8 @@ Tags: directory, directorist, directorist wpml, wpml
 Requires at least: 5.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.1.2
-License: GPL-2.0-or-later
+Stable tag: 2.1.3
+License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Directorist-WPML integration plugin uses automatic translation to translate your directory website content instantly and lets you check and edit the translations just before publishing them on your directory site.
@@ -60,7 +60,7 @@ If you want to contribute to the project, you’re most welcome to make it happe
 
 == Changelogs == 
 
-2.1.1 - Jun, 2025
+2.1.3 - Jun 04, 2025
 
 * Added:  Directorist as a required dependency
 * Added: Translation support for Claim Listing Settings
