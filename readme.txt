@@ -1,12 +1,12 @@
 === Directorist - WPML Integration ===
-Contributors:      wpwax
-Tags:              directory, directorist, directorist wpml, wpml
+Contributors: wpwax
+Tags: directory, directorist, directorist wpml, wpml
 Requires at least: 5.7
-Tested up to:      6.8
-Requires PHP:      7.4
-Stable tag:        2.1.1
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 6.8
+Requires PHP: 7.4
+Stable tag: 2.1.2
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Directorist-WPML integration plugin uses automatic translation to translate your directory website content instantly and lets you check and edit the translations just before publishing them on your directory site.
 

@@ -12,7 +12,7 @@
  * Plugin URI:        https://github.com/sovware/directorist-wpml-integration
  * Description:       WPML integration plugin for Directorist.
  * Requires Plugins:  directorist,sitepress-multilingual-cms
- * Version:           2.1.1
+ * Version:           2.1.2
  * Requires at least: 5.7
  * Requires PHP:      7.2
  * Author:            wpWax
