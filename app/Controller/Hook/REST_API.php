@@ -5,8 +5,8 @@ namespace Directorist_WPML_Integration\Controller\Hook;
 class REST_API {
 
     public function __construct() {
-        add_action( 'directorist_rest_before_query', [ 'set_content_language_before_rest_query' ], 2, 20 );
-        add_action( 'directorist_rest_response', [ 'set_content_language_in_rest_response_header' ], 2, 20 );
+        add_action( 'directorist_rest_before_query', [ $this, 'set_content_language_before_rest_query' ], 20, 2 );
+        add_action( 'directorist_rest_response', [ $this, 'set_content_language_in_rest_response_header' ], 20, 2 );
     }
 
     // Set content language before rest query

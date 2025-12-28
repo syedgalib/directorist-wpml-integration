@@ -144,6 +144,17 @@
             <key name="login_meta_desc"/>
             <key name="homepage_meta_desc"/>
             <key name="search_result_meta_desc"/>
+            
+            <!-- Claim Listing extension -->
+            <key name="claim_widget_title"/>
+            <key name="claim_widget_description"/>
+            <key name="claim_now"/>
+            <key name="email_sub_new_claim"/>
+            <key name="email_tmpl_new_claim"/>
+            <key name="email_sub_approved_claim"/>
+            <key name="email_tmpl_approved_claim"/>
+            <key name="email_sub_declined_claim"/>
+            <key name="email_tmpl_declined_claim"/>
         </key>
     </admin-texts>
 
