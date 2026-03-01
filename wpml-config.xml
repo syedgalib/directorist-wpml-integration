@@ -13,20 +13,35 @@
     </taxonomies>
 
     <!--
-        Ensure each directory type term keeps the same "default" flag across all
-        languages so there is always a default directory type per language.
-        This mirrors WPML’s suggested configuration:
+        custom-term-fields for atbdp_listing_types (directory type) term meta:
 
-        <custom-term-fields>
-          <custom-term-field action="copy">_default</custom-term-field>
-        </custom-term-fields>
+        - submission_form_fields  : translate - keeps listing form field labels
+          per language so editing the default language does not overwrite
+          translated label values (comp-4370).
+
+        - single_listings_contents : translate - keeps single listing page layout
+          and widget labels per language for the same reason (comp-4370).
+
+        - _default : copy - every language needs its own default directory type
+          flag so Directorist always has a valid default (comp-4354).
     -->
     <custom-term-fields>
+        <custom-term-field action="translate">submission_form_fields</custom-term-field>
+        <custom-term-field action="translate">single_listings_contents</custom-term-field>
         <custom-term-field action="copy">_default</custom-term-field>
     </custom-term-fields>
 
     <admin-texts>
         <key name="atbdp_option">
+            <!-- Page IDs (for ATE/CTE mapping to translated pages) - comp-4358 -->
+            <key name="search_result_page" type="post-ids" sub-type="page"/>
+            <key name="add_listing_page" type="post-ids" sub-type="page"/>
+            <key name="all_listing_page" type="post-ids" sub-type="page"/>
+            <key name="single_category_page" type="post-ids" sub-type="page"/>
+            <key name="single_location_page" type="post-ids" sub-type="page"/>
+            <key name="single_tag_page" type="post-ids" sub-type="page"/>
+            <key name="author_profile_page" type="post-ids" sub-type="page"/>
+            <key name="compare_listings_page" type="post-ids" sub-type="page"/>
             <!-- All Listings -->
             <key name="all_listing_title"/>
             <key name="listings_filter_button_text"/>
@@ -258,6 +273,8 @@
         <widget name="directorist_all_listing">
             <fields>
                 <field>header_title</field>
+                <field type="taxonomy-ids" sub-type="atbdp_listing_types">type</field>
+                <field type="taxonomy-ids" sub-type="atbdp_listing_types">default_type</field>
             </fields>
         </widget>
         <widget name="directorist_search_listing">
@@ -268,26 +285,33 @@
                 <field>more_filter_btn_text</field>
                 <field>more_filter_reset_btn_text</field>
                 <field>more_filter_search_btn_text</field>
+                <field type="taxonomy-ids" sub-type="atbdp_listing_types">type</field>
+                <field type="taxonomy-ids" sub-type="atbdp_listing_types">default_type</field>
             </fields>
         </widget>
         <widget name="directorist_search_result">
             <fields>
                 <field>header_title</field>
+                <field type="taxonomy-ids" sub-type="atbdp_listing_types">type</field>
+                <field type="taxonomy-ids" sub-type="atbdp_listing_types">default_type</field>
             </fields>
         </widget>
         <widget name="directorist_category">
             <fields>
                 <field>header_title</field>
+                <field type="taxonomy-ids" sub-type="at_biz_dir-category">cat</field>
             </fields>
         </widget>
         <widget name="directorist_location">
             <fields>
                 <field>header_title</field>
+                <field type="taxonomy-ids" sub-type="at_biz_dir-location">loc</field>
             </fields>
         </widget>
         <widget name="directorist_tag">
             <fields>
                 <field>header_title</field>
+                <field type="taxonomy-ids" sub-type="at_biz_dir-tags">tag</field>
             </fields>
         </widget>
         <widget name="directorist_user_login">
